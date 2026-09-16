@@ -6,120 +6,125 @@
 <title>PUZZLE II</title>
 
 <style>
-    body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #090909;
-        color: #eee;
-        font-family: Georgia, serif;
-    }
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #090909;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+}
 
-    .box {
-        width: min(90%, 520px);
-        text-align: center;
-    }
+.container {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
 
-    h1 {
-        letter-spacing: 6px;
-        font-size: 22px;
-        font-weight: normal;
-    }
+h1 {
+    letter-spacing: 6px;
+    font-size: 22px;
+    font-weight: normal;
+}
 
-    p {
-        color: #888;
-        font-family: monospace;
-        font-size: 13px;
-    }
+.black-box {
+    margin-top: 35px;
+    padding: 30px;
+    background: #000;
+    border: 1px solid #222;
+}
 
-    .black-box {
-        margin: 35px auto 0;
-        padding: 28px;
-        background: #000;
-        border: 1px solid #222;
-        box-shadow: 0 0 25px rgba(0,0,0,.8);
-    }
+.label {
+    color: #666;
+    margin-bottom: 18px;
+    font-family: monospace;
+}
 
-    input {
-        width: 90%;
-        box-sizing: border-box;
-        padding: 14px;
-        background: #111;
-        border: 1px solid #333;
-        color: white;
-        text-align: center;
-        font-family: monospace;
-        outline: none;
-    }
+input {
+    width: 90%;
+    padding: 14px;
+    box-sizing: border-box;
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    text-align: center;
+    font-family: monospace;
+}
 
-    button {
-        margin-top: 12px;
-        padding: 11px 25px;
-        background: #111;
-        border: 1px solid #444;
-        color: #aaa;
-        cursor: pointer;
-    }
+button {
+    margin-top: 15px;
+    padding: 11px 28px;
+    background: #111;
+    border: 1px solid #444;
+    color: #aaa;
+    cursor: pointer;
+}
 
-    button:hover {
-        color: white;
-        border-color: #777;
-    }
+button:hover {
+    color: white;
+}
 
-    #result {
-        margin-top: 20px;
-        min-height: 20px;
-        font-family: monospace;
-    }
+#message {
+    margin-top: 20px;
+    font-family: monospace;
+    color: white;
+    min-height: 20px;
+}
 </style>
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
     <h1>PUZZLE II</h1>
 
-    <p>the previous answer is required</p>
-
     <div class="black-box">
 
-        <div style="margin-bottom:15px;color:#666;">
-            PUT PREVIOUS ANSWER HERE
+        <div class="label">
+            I’m what happens when you use up your time.
+You can’t get that time back.
+You _____ your time.
+What am I?
+Clue: Think about the answer in the other puzzle you played.
         </div>
 
-        <input
-            id="answer"
-            placeholder="none"
-            autocomplete="off"
-        >
+        <input id="answer" placeholder="Enter answer">
 
         <br>
 
-        <button onclick="checkAnswer()">
-            ENTER
-        </button>
+        <button onclick="showMessage()">ENTER</button>
 
-        <div id="result">none</div>
+        <div id="message"></div>
 
     </div>
 
 </div>
 
 <script>
+function showMessage() {
 
-function checkAnswer() {
-
-    const input =
-        document.getElementById("answer")
+    const input = document
+        .getElementById("answer")
         .value
         .trim()
         .toLowerCase();
 
-    const result =
-        document.getElementById("result");
+    // Previous puzzle answer = WASTED
+    if (input === "wasted") {
 
-    // PLACEHOLDER FOR NOW
-    // The real "Wasted"
+        // Placeholder for the next puzzle/link
+        document.getElementById("message").textContent = "none";
+
+    } else {
+
+        document.getElementById("message").textContent = "";
+
+    }
+}
+</script>
+
+</body>
+</html>
